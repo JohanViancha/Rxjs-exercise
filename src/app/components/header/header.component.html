@@ -1,0 +1,37 @@
+<section class="header">
+    <h2 class="header-title">GFT STORE</h2>
+    <div class="searcher">
+      <input
+        [formControl]="searchControl"
+        type="search"
+        placeholder="Buscar"
+        class="searcher-input"
+      />
+      <div
+        [ngStyle]="{ display: searchControl.value ? 'flex' : 'none' }"
+        class="searcher-group"
+      >
+    
+
+        <div class="searcher-item" *ngFor="let product of products$ | async">
+          <img
+            class="item-image"
+            [src]="product.image"
+            alt="Imagen del producto"
+          />
+          <span class="item-title">{{ product.title }}</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="notification" (click)="openCart()">
+      <img class="notification-image" src="../assets/notification.svg" alt="" />
+      <span *ngIf="countProduct > 0" class="notification-count">{{
+        countProduct
+      }}</span>
+    </div>
+  </section>
+
+  
+
+  

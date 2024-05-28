@@ -1,0 +1,24 @@
+<main class="container">
+  <ul>
+    <li class="product" *ngFor="let product of productList$ | async">
+      <img
+        [src]="product.image"
+        class="product-image"
+        alt="Imagen del producto"
+      />
+      <span class="product-title">{{ product.title }}</span>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-price">{{ product.price | currency }}</p>
+      <span class="product-category">{{ product.category }}</span>
+      <div class="product-cart-love">
+        <button [disabled]="isAddedToCart(product.id) | async" (click)="addProductToCart(product)">
+          <img src="../assets/cart-add.svg" alt="" />
+        </button>
+        <button>
+          <img src="../assets/love.svg" alt="" />
+        </button>
+      </div>
+      <button class="product-buy">Comprar</button>
+    </li>
+  </ul>
+</main>

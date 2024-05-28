@@ -1,0 +1,7 @@
+<section class="cart" [ngStyle]="{'right': (isOpen() | async) ? '0rem': '-20rem'}">
+  <div class="items" *ngFor="let product of productList$ | async">
+    <img class="items-img" [src]="product.image" alt="Imagen del producto">
+    <p class="items-title">{{product.title}}</p>
+    <input class="items-count" type="number" [defaultValue]="1">
+  </div>
+</section>
